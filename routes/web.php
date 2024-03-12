@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expense.create');
+Route::middleware(['auth'])->group(function () {
+    // Group for all expense routes
+    Route::resource('expenses', ExpenseController::class);
+    
+    // Route for approving expenses
+    Route::post('expenses/{expense}/approve', [ExpenseController::class, 'approve'])->name('expenses.approve');
+    
+    // Route for denying expenses
+    Route::post('expenses/{expense}/deny', [ExpenseController::class, 'deny'])->name('expenses.deny');
+});
 
-Route::resource('expense', ExpenseController::class)->parameters(['expense' => 'expense']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

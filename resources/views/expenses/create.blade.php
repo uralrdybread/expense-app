@@ -7,7 +7,7 @@
                     <div class="card-header">Create Expense</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('expense.store') }}">
+                        <form method="POST" action="{{ route('expenses.store') }}">
                             @csrf
 
                             <div class="form-group">

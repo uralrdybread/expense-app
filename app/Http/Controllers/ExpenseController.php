@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
     public function index()
-    {
-        $expenses = Expense::all();
-        return view('expenses.index', compact('expenses'));
-    }
+{
+    $expenses = Expense::all(); // Fetch all expenses from the database
+    return view('expenses.index', compact('expenses'));
+}
 
     public function create()
     {
@@ -19,9 +20,31 @@ class ExpenseController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validate request data and store expense
-    }
+{
+    // Validate the incoming request data
+
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Create a new expense instance
+    $expense = new Expense();
+
+    // Assign the logged-in user's ID to the user_id field
+    $expense->user_id = $user->id;
+
+    // Set the name of the expense to the username of the authenticated user
+    $expense->name = $user->name;
+
+    // Set other fields of the expense from the request data
+    $expense->amount = $request->input('amount');
+    $expense->description = $request->input('description');
+    // Set other fields as necessary...
+
+    // Save the expense to the database
+    $expense->save();
+
+    // Redirect to the expense index page or show success message
+}
 
     public function show(Expense $expense)
     {
@@ -42,4 +65,21 @@ class ExpenseController extends Controller
     {
         // Delete expense
     }
+
+    public function approve(Expense $expense)
+    {
+    $expense->status = 'approved';
+    $expense->save();
+
+    return redirect()->back()->with('success', 'Expense approved.');
+    }
+
+    public function deny(Expense $expense)
+    {
+    $expense->status = 'denied';
+    $expense->save();
+
+    return redirect()->back()->with('success', 'Expense denied.');
+    }
+
 }
