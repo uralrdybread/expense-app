@@ -43,7 +43,7 @@ class ExpenseController extends Controller
     // Save the expense to the database
     $expense->save();
 
-    // Redirect to the expense index page or show success message
+    return redirect()->route('expenses.index')->with('success', 'Expense updated successfully.');
 }
 
     public function show(Expense $expense)
@@ -53,12 +53,20 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense)
     {
-        return view('expenses.edit', compact('expense'));
+    $this->authorize('update', $expense);
+
+    return view('expenses.edit', compact('expense'));
     }
 
     public function update(Request $request, Expense $expense)
     {
-        // Validate request data and update expense
+         $expense->update([
+        'amount' => $request->amount,
+        'description' => $request->description,
+        // Update other fields as needed
+    ]);
+
+    return redirect()->route('expenses.index')->with('success', 'Expense updated successfully.');
     }
 
     public function destroy(Expense $expense)

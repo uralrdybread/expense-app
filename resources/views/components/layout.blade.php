@@ -8,8 +8,32 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-item">
+            <a href="{{ route('welcome') }}">Home</a> <!-- Link to the Home page -->
+        </div>
+        <div class="navbar-item">
+            <a href="{{ route('dashboard') }}">Dashboard</a>
+        </div>
+        <div class="navbar-item">
+            <a href="{{ route('expenses.index') }}">Expenses</a>
+        </div>
+        <div class="navbar-item">
+            <a href="{{ route('expenses.create') }}">Create</a>
+        </div>
+        <div class="navbar-item">
+            <a href="{{ route('profile.edit') }}">Profile</a>
+        </div>
+        <div class="navbar-item">
+            <a href="{{ route('expenses.create') }}">Logout</a>
+        </div>
+        <!-- Add more navbar items as needed -->
+    </div>
 
-    {{ $slot }}
-    
+    <!-- Page Content -->
+    <div class="content">
+        {{$slot}} <!-- Your page content goes here -->
+    </div>
 </body>
 </html>

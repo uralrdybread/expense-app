@@ -16,8 +16,8 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome'); // Assuming 'home' is the name of your home page view
+})->name('welcome');
 
 Route::middleware(['auth'])->group(function () {
     // Group for all expense routes
