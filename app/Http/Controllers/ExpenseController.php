@@ -90,4 +90,14 @@ class ExpenseController extends Controller
     return redirect()->back()->with('success', 'Expense denied.');
     }
 
-}
+    public function revert(Expense $expense)
+    {
+    $expense->status = 'pending';
+    $expense->save();
+
+    return redirect()->back()->with('success', 'Expense status reverted.');
+    }
+
+    
+
+};

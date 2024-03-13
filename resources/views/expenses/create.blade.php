@@ -5,7 +5,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Create Expense</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('expenses.store') }}">
                             @csrf
@@ -20,7 +19,9 @@
                                 <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="form-group text-center"> <!-- Add text-center class to center the button -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>

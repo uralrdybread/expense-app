@@ -8,28 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="navbar-item">
-            <a href="{{ route('welcome') }}">Home</a> <!-- Link to the Home page -->
-        </div>
-        <div class="navbar-item">
-            <a href="{{ route('dashboard') }}">Dashboard</a>
-        </div>
-        <div class="navbar-item">
-            <a href="{{ route('expenses.index') }}">Expenses</a>
-        </div>
-        <div class="navbar-item">
-            <a href="{{ route('expenses.create') }}">Create</a>
-        </div>
-        <div class="navbar-item">
-            <a href="{{ route('profile.edit') }}">Profile</a>
-        </div>
-        <div class="navbar-item">
-            <a href="{{ route('expenses.create') }}">Logout</a>
-        </div>
-        <!-- Add more navbar items as needed -->
+<div class="navbar">
+    <div class="navbar-item">
+        <a href="{{ route('welcome') }}">Home</a>
     </div>
+    <div class="navbar-item">
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+    </div>
+    <div class="navbar-item">
+        <a href="{{ route('expenses.index') }}">Expenses</a>
+    </div>
+    <div class="navbar-item">
+        <a href="{{ route('expenses.create') }}">Create</a>
+    </div>
+    <div class="navbar-item">
+        <a href="{{ route('profile.edit') }}">Profile</a>
+    </div>
+    <div class="navbar-item">
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
+</div>
 
     <!-- Page Content -->
     <div class="content">

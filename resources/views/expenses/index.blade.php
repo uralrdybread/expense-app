@@ -27,7 +27,25 @@
                                     <td>{{ $expense->status }}</td>
                                     <td class="actions-column">
                                         @if (auth()->user()->id === $expense->user_id)
-                                        <a href="{{ route('expenses.edit', $expense->id) }}" class="btn btn-edit">Edit</a>
+                                            <a href="{{ route('expenses.edit', $expense->id) }}" class="btn btn-edit">Edit</a>
+                                        @endif
+                                        @if (auth()->user()->role === 'admin' && $expense->status === 'pending')
+                                            <div class="btn-group">
+                                                <form action="{{ route('expenses.approve', $expense->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="approve-button">Approve</button>
+                                                </form>
+                                                <form action="{{ route('expenses.deny', $expense->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="deny-button">Deny</button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                        @if (auth()->user()->role === 'admin' && $expense->status !== 'pending')
+                                            <form action="{{ route('expenses.revert', $expense->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-revert">Revert</button>
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>

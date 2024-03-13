@@ -4,7 +4,34 @@ body {
     padding: 0;
 }
 
+.card-header {
+    background-color: #007bff; /* Blue */
+    color: white;
+    font-size: 1.25rem; /* Adjust font size as needed */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0; /* Rounded corners on the top */
+    border: 2px solid black;
+}
+
+/* Add shadow to the card */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add margin to the card */
+.card {
+    margin-bottom: 20px;
+}
+
 /* index css attributes */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
 
 .expenses-table {
     width: 100%;
@@ -34,6 +61,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .approve-button {
@@ -46,10 +74,28 @@ body {
     color: white;
 }
 
+.btn-revert {
+    background-color: #ff6347; /* Coral */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-revert:hover {
+    background-color: #ff4c3b;
+}
+
 /* create css attributes */
 
 .form-group {
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .form-control {
@@ -72,10 +118,11 @@ body {
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Darker shade of primary color on hover */
+    background-color: #0056b3;
 }
 
 textarea.form-control {
@@ -86,6 +133,10 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
     display: block; /* Ensure labels appear on top of inputs */
+}
+
+.text-center {
+    text-align: center; /* Align text (and inline elements) to the center */
 }
 
 /* navigation bar */
@@ -121,4 +172,22 @@ label {
 .content {
     margin-left: 200px; /* Ensure content is not covered by the navbar */
     padding: 20px;
+}
+
+.logout-btn {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #45a049; /* Darker Green */
 }

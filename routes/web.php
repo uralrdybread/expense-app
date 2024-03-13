@@ -16,8 +16,23 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome'); // Assuming 'home' is the name of your home page view
+    return view('welcome');
 })->name('welcome');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/login', function () {
+    // Handle login logic
+});
+
+Route::post('/logout', function () {
+    // Handle logout logic
+})->name('logout');
+
+
+Route::post('expenses/{expense}/revert', [ExpenseController::class, 'revert'])->name('expenses.revert');
 
 Route::middleware(['auth'])->group(function () {
     // Group for all expense routes
