@@ -123,6 +123,7 @@ body {
 
 .btn-primary:hover {
     background-color: #0056b3;
+    cursor: pointer;
 }
 
 textarea.form-control {
