@@ -1,3 +1,20 @@
+# Simple Expense List
+
+## Goals
+
+- **Laravel Breeze Familiarity**: Become familiar with Laravel Breeze and its authentication system.
+  
+- **User Roles**: Set up a system with both administrators and regular users. Administrators should be able to approve or deny expenses, while users can edit their own submitted expenses.
+
+- **Navigation Sidebar**: Create a decent navigation sidebar to improve user navigation and intuitiveness.
+
+![createexpense](https://github.com/uralrdybread/expense-app/assets/48900828/9b3aca66-9e36-4b22-8226-c09c2eea27d4)
+![main](https://github.com/uralrdybread/expense-app/assets/48900828/0cdc0964-4ec0-438a-a07a-b69c67f7da25)
+![expenselist](https://github.com/uralrdybread/expense-app/assets/48900828/e4763262-d79f-40e0-a860-a2b46f7edb77)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
